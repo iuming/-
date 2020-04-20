@@ -1,0 +1,262 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<meta name=Generator content="Microsoft Word 11 (filtered)">
+<title>水及重水热物性计算程序使用说明</title>
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:宋体;
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+@font-face
+	{font-family:黑体;
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+@font-face
+	{font-family:"\@宋体";
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+@font-face
+	{font-family:"\@黑体";
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	font-size:10.5pt;
+	font-family:"Times New Roman";}
+h1
+	{margin-top:17.0pt;
+	margin-right:0cm;
+	margin-bottom:16.5pt;
+	margin-left:0cm;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:240%;
+	page-break-after:avoid;
+	font-size:22.0pt;
+	font-family:"Times New Roman";}
+h2
+	{margin-top:13.0pt;
+	margin-right:0cm;
+	margin-bottom:13.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:173%;
+	page-break-after:avoid;
+	font-size:16.0pt;
+	font-family:Arial;}
+h3
+	{margin-top:13.0pt;
+	margin-right:0cm;
+	margin-bottom:13.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:173%;
+	page-break-after:avoid;
+	font-size:16.0pt;
+	font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;}
+ /* Page Definitions */
+ @page Section1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 90.0pt 72.0pt 90.0pt;
+	layout-grid:15.6pt;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+
+</head>
+
+<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+
+<div class=Section1 style='layout-grid:15.6pt'>
+
+<h1 align=center style='text-align:center'><span style='font-family:宋体'>水及重水热物性计算程序使用说明</span></h1>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-family:宋体'>徐良旺、余建辉、贾宝山</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-family:宋体'>（清华大学工程物理系，</span><span lang=EN-US>100084</span><span
+style='font-family:宋体'>）</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>&nbsp;</span></p>
+
+<h2><span style='font-size:18.0pt;line-height:173%;font-family:宋体'>软件概述</span></h2>
+
+<p class=MsoNormal style='text-indent:17.95pt'><span style='font-family:宋体'>本软件在《载热质热物性计算程序及数据手册》（居怀明、徐元辉、李怀萱编著，徐元辉、马昌文审校）的基础上编写而成，《手册》的作者分享本软件的版权。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt'><span style='font-family:宋体'>程序在编写的过程中作者进行了一定的功能扩充，并纠正了《手册》程序代码中少量的错误。一般来说，可以认为本程序的计算能力等同于《手册》中的</span><span
+lang=EN-US>FORTRAN</span><span style='font-family:宋体'>代码。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt'><span style='font-family:宋体'>虽然经过一定的校核，本软件作者不对程序的准确性和可能存在的安全隐患负责。本程序提供了</span><span
+lang=EN-US>DLL</span><span style='font-family:宋体'>库文件，任何人可以在<span
+style='color:red'>注明出处</span>的前提下无限制地使用该计算库。</span></p>
+
+<h2><span style='font-size:18.0pt;line-height:173%;font-family:宋体'>软件功能</span></h2>
+
+<h3><span style='font-size:12.0pt;line-height:173%;font-family:宋体'>轻水（饱和态）：</span></h3>
+
+<p class=MsoNormal style='text-indent:17.95pt'><span style='font-family:宋体'>该程序可以计算</span><span
+lang=EN-US><sub><img width=67 height=21 src="Readme.files/image001.gif"></sub></span><span
+style='font-family:宋体'>范围内（对应饱和温度</span><span lang=EN-US><sub><img width=67
+height=21 src="Readme.files/image002.gif"></sub></span><span style='font-family:
+宋体'>）的水和水蒸气的密度</span><span lang=EN-US><sub><img width=16 height=17
+src="Readme.files/image003.gif"></sub></span><span style='font-family:宋体'>、焓</span><span
+lang=EN-US><sub><img width=13 height=19 src="Readme.files/image004.gif"></sub></span><span
+style='font-family:宋体'>、熵</span><span lang=EN-US><sub><img width=12 height=15
+src="Readme.files/image005.gif"></sub></span><span style='font-family:宋体'>、定压比热</span><span
+lang=EN-US><sub><img width=21 height=25 src="Readme.files/image006.gif"></sub></span><span
+style='font-family:宋体'>、粘度</span><span lang=EN-US><sub><img width=13 height=17
+src="Readme.files/image007.gif"></sub></span><span style='font-family:宋体'>、导热系数</span><span
+lang=EN-US><sub><img width=15 height=19 src="Readme.files/image008.gif"></sub></span><span
+style='font-family:宋体'>、普朗特数</span><span lang=EN-US><sub><img width=20
+height=17 src="Readme.files/image009.gif"></sub></span><span style='font-family:
+宋体'>等。由已知饱和温度</span><span lang=EN-US><sub><img width=16 height=24
+src="Readme.files/image010.gif"></sub></span><span style='font-family:宋体'>可以计算饱和压力</span><span
+lang=EN-US><sub><img width=17 height=24 src="Readme.files/image011.gif"></sub></span><span
+style='font-family:宋体'>，已知饱和压力</span><span lang=EN-US><sub><img width=17
+height=24 src="Readme.files/image011.gif"></sub></span><span style='font-family:
+宋体'>可以计算饱和温度。</span></p>
+
+<h3><span style='font-size:12.0pt;line-height:173%;font-family:宋体'>轻水（非饱和态）：</span></h3>
+
+<p class=MsoNormal style='text-indent:17.95pt'><span style='font-family:宋体'>该程序可以计算</span><span
+lang=EN-US><sub><img width=67 height=21 src="Readme.files/image001.gif"></sub></span><span
+style='font-family:宋体'>，</span><span lang=EN-US><sub><img width=67 height=21
+src="Readme.files/image012.gif"></sub></span><span style='font-family:宋体'>范围内的水和水蒸气的密度</span><span
+lang=EN-US><sub><img width=16 height=17 src="Readme.files/image003.gif"></sub></span><span
+style='font-family:宋体'>、焓</span><span lang=EN-US><sub><img width=13 height=19
+src="Readme.files/image004.gif"></sub></span><span style='font-family:宋体'>、熵</span><span
+lang=EN-US><sub><img width=12 height=15 src="Readme.files/image005.gif"></sub></span><span
+style='font-family:宋体'>、定压比热</span><span lang=EN-US><sub><img width=21
+height=25 src="Readme.files/image006.gif"></sub></span><span style='font-family:
+宋体'>、粘度</span><span lang=EN-US><sub><img width=13 height=17
+src="Readme.files/image007.gif"></sub></span><span style='font-family:宋体'>、导热系数</span><span
+lang=EN-US><sub><img width=15 height=19 src="Readme.files/image008.gif"></sub></span><span
+style='font-family:宋体'>、普朗特数</span><span lang=EN-US><sub><img width=20
+height=17 src="Readme.files/image009.gif"></sub></span><span style='font-family:
+宋体'>等。用户可以使用压力和温度、压力和焓值两种方法确定要计算的轻水状态。</span></p>
+
+<h3><span style='font-size:12.0pt;line-height:173%;font-family:宋体'>重水（饱和态）：</span></h3>
+
+<p class=MsoNormal style='text-indent:17.95pt'><span style='font-family:宋体'>该程序可以计算</span><span
+lang=EN-US><sub><img width=84 height=19 src="Readme.files/image013.gif"></sub></span><span
+style='font-family:宋体'>范围内（对应饱和温度</span><span lang=EN-US><sub><img width=85
+height=21 src="Readme.files/image014.gif"></sub></span><span style='font-family:
+宋体'>）的重水和重水蒸气的密度</span><span lang=EN-US><sub><img width=16 height=17
+src="Readme.files/image003.gif"></sub></span><span style='font-family:宋体'>、焓</span><span
+lang=EN-US><sub><img width=13 height=19 src="Readme.files/image004.gif"></sub></span><span
+style='font-family:宋体'>、熵</span><span lang=EN-US><sub><img width=12 height=15
+src="Readme.files/image005.gif"></sub></span><span style='font-family:宋体'>、定压比热</span><span
+lang=EN-US><sub><img width=21 height=25 src="Readme.files/image006.gif"></sub></span><span
+style='font-family:宋体'>（</span><span lang=EN-US><sub><img width=88 height=21
+src="Readme.files/image015.gif"></sub></span><span style='font-family:宋体'>）、粘度</span><span
+lang=EN-US><sub><img width=13 height=17 src="Readme.files/image007.gif"></sub></span><span
+style='font-family:宋体'>、导热系数</span><span lang=EN-US><sub><img width=15
+height=19 src="Readme.files/image008.gif"></sub></span><span style='font-family:
+宋体'>、普朗特数</span><span lang=EN-US><sub><img width=20 height=17
+src="Readme.files/image009.gif"></sub></span><span style='font-family:宋体'>等。由已知饱和温度</span><span
+lang=EN-US><sub><img width=16 height=24 src="Readme.files/image010.gif"></sub></span><span
+style='font-family:宋体'>可以计算饱和压力</span><span lang=EN-US><sub><img width=17
+height=24 src="Readme.files/image011.gif"></sub></span><span style='font-family:
+宋体'>，已知饱和压力</span><span lang=EN-US><sub><img width=17 height=24
+src="Readme.files/image011.gif"></sub></span><span style='font-family:宋体'>可以计算饱和温度。</span></p>
+
+<h3><span style='font-size:12.0pt;line-height:173%;font-family:宋体'>重水（非饱和态）：</span></h3>
+
+<p class=MsoNormal style='text-indent:17.95pt'><span style='font-family:宋体'>该程序可以计算</span><span
+lang=EN-US><sub><img width=84 height=19 src="Readme.files/image013.gif"></sub></span><span
+style='font-family:宋体'>，</span><span lang=EN-US><sub><img width=73 height=21
+src="Readme.files/image016.gif"></sub></span><span style='font-family:宋体'>范围内的重水和重水蒸气的密度</span><span
+lang=EN-US><sub><img width=16 height=17 src="Readme.files/image003.gif"></sub></span><span
+style='font-family:宋体'>、焓</span><span lang=EN-US><sub><img width=13 height=19
+src="Readme.files/image004.gif"></sub></span><span style='font-family:宋体'>、熵</span><span
+lang=EN-US><sub><img width=12 height=15 src="Readme.files/image005.gif"></sub></span><span
+style='font-family:宋体'>、定压比热</span><span lang=EN-US><sub><img width=21
+height=25 src="Readme.files/image006.gif"></sub></span><span style='font-family:
+宋体'>（</span><span lang=EN-US><sub><img width=76 height=21
+src="Readme.files/image017.gif"></sub></span><span style='font-family:宋体'>）、粘度</span><span
+lang=EN-US><sub><img width=13 height=17 src="Readme.files/image007.gif"></sub></span><span
+style='font-family:宋体'>、导热系数</span><span lang=EN-US><sub><img width=15
+height=19 src="Readme.files/image008.gif"></sub></span><span style='font-family:
+宋体'>、普朗特数</span><span lang=EN-US><sub><img width=20 height=17
+src="Readme.files/image009.gif"></sub></span><span style='font-family:宋体'>等。用户可以使用压力和温度、压力和焓值两种方法确定要计算的轻水状态。</span></p>
+
+<h2><span style='font-size:18.0pt;line-height:173%;font-family:宋体'>误差分析</span></h2>
+
+<h3><span style='font-size:12.0pt;line-height:173%;font-family:宋体'>轻水</span></h3>
+
+<p class=MsoNormal style='text-indent:17.95pt'><span style='font-family:宋体'>用该程序计算饱和压力</span><span
+lang=EN-US><sub><img width=19 height=24 src="Readme.files/image018.gif"></sub></span><span
+style='font-family:宋体'>以及饱和水的比容</span><span lang=EN-US><sub><img width=16
+height=19 src="Readme.files/image019.gif"></sub></span><span style='font-family:
+宋体'>、焓</span><span lang=EN-US><sub><img width=17 height=19
+src="Readme.files/image020.gif"></sub></span><span style='font-family:宋体'>；饱和蒸汽的比容</span><span
+lang=EN-US><sub><img width=17 height=19 src="Readme.files/image021.gif"></sub></span><span
+style='font-family:宋体'>、焓</span><span lang=EN-US><sub><img width=19 height=19
+src="Readme.files/image022.gif"></sub></span><span style='font-family:宋体'>与</span><span
+lang=EN-US>1985</span><span style='font-family:宋体'>年国际骨架表相比较：饱和压力偏差小于千分之一；饱和水和饱和汽的比容偏差小于万分之四；饱和水和饱和汽的焓差小于万分之八。</span></p>
+
+<p class=MsoNormal style='text-indent:17.95pt'><span style='font-family:宋体'>本程序计算过冷轻水和过热蒸气的比容</span><span
+lang=EN-US><sub><img width=12 height=15 src="Readme.files/image023.gif"></sub></span><span
+style='font-family:宋体'>和焓</span><span lang=EN-US><sub><img width=13 height=19
+src="Readme.files/image004.gif"></sub></span><span style='font-family:宋体'>时，个别点不在</span><span
+lang=EN-US>1985</span><span style='font-family:宋体'>年国际骨架表允许范围内，一般偏差万分之一以下，焓的最大偏差为千分之五（</span><span
+lang=EN-US><sub><img width=52 height=19 src="Readme.files/image024.gif"></sub></span><span
+style='font-family:宋体'>，</span><span lang=EN-US><sub><img width=45 height=21
+src="Readme.files/image025.gif"></sub></span><span style='font-family:宋体'>），比容的最大偏差为千分之三（</span><span
+lang=EN-US><sub><img width=59 height=19 src="Readme.files/image026.gif"></sub></span><span
+style='font-family:宋体'>，</span><span lang=EN-US><sub><img width=29 height=21
+src="Readme.files/image027.gif"></sub></span><span style='font-family:宋体'>）。</span></p>
+
+<h3><span style='font-size:12.0pt;line-height:173%;font-family:宋体'>重水</span></h3>
+
+<p class=MsoNormal style='text-indent:17.95pt'><span style='font-family:宋体'>本程序计算重水的各种热物理性质，所得结果与《</span><span
+lang=EN-US>Table on the Thermophysical Properties of Liquids and Gases Second
+edition (1972), N. B. Vargaftik</span><span style='font-family:宋体'>》所列的值进行比较，其相对误差分别为：比容</span><span
+lang=EN-US><sub><img width=12 height=15 src="Readme.files/image023.gif"></sub></span><span
+style='font-family:宋体'>的相对误差小于</span><span lang=EN-US><sub><img width=47
+height=19 src="Readme.files/image028.gif"></sub></span><span style='font-family:
+宋体'>，焓</span><span lang=EN-US><sub><img width=13 height=19
+src="Readme.files/image004.gif"></sub></span><span style='font-family:宋体'>的相对误差小于</span><span
+lang=EN-US><sub><img width=47 height=19 src="Readme.files/image029.gif"></sub></span><span
+style='font-family:宋体'>；熵</span><span lang=EN-US><sub><img width=12 height=15
+src="Readme.files/image005.gif"></sub></span><span style='font-family:宋体'>的相对误差小于</span><span
+lang=EN-US><sub><img width=47 height=19 src="Readme.files/image030.gif"></sub></span><span
+style='font-family:宋体'>；导热系数</span><span lang=EN-US><sub><img width=15
+height=19 src="Readme.files/image008.gif"></sub></span><span style='font-family:
+宋体'>的相对误差小于</span><span lang=EN-US><sub><img width=35 height=19
+src="Readme.files/image031.gif"></sub></span><span style='font-family:宋体'>；粘度的相对误差小于</span><span
+lang=EN-US><sub><img width=35 height=19 src="Readme.files/image032.gif"></sub></span><span
+style='font-family:宋体'>；比热</span><span lang=EN-US><sub><img width=21 height=25
+src="Readme.files/image006.gif"></sub></span><span style='font-family:宋体'>的相对误差小于</span><span
+lang=EN-US><sub><img width=35 height=19 src="Readme.files/image031.gif"></sub></span><span
+style='font-family:宋体'>。</span></p>
+
+<h2><span style='font-size:18.0pt;line-height:173%;font-family:宋体'>软件作者</span></h2>
+
+<p class=MsoNormal style='text-indent:27.0pt'><span style='font-family:宋体'>徐良旺：清华大学工程物理系博士研究生，</span><span
+lang=EN-US><a href="mailto:xuliang98@mails.tsinghua.edu.cn">xuliang98@mails.tsinghua.edu.cn</a></span></p>
+
+<p class=MsoNormal style='text-indent:27.0pt'><span style='font-family:宋体'>余建辉：清华大学工程物理系硕士研究生，</span><span
+lang=EN-US><a href="mailto:yujianhui@tsinghua.org.cn">yujianhui@tsinghua.org.cn</a></span></p>
+
+<p class=MsoNormal style='text-indent:27.0pt'><span lang=EN-US>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>
